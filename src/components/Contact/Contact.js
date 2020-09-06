@@ -5,6 +5,7 @@ class Contact extends Component{
         return(
             <>
                 <p>CONTACT PAGE!</p>
+                <p>Place a Form here so people can contact you directly.</p> 
             </>
         )
     }

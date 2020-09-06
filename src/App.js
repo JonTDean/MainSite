@@ -1,16 +1,22 @@
+// Libraries
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import HeaderNavBar from './assets/Static/NavBar/HeaderNavBar';
-import Home from './assets/Home/Home';
-import Portfolio from './assets/Portfolio/Portfolio';
-import Blog from './assets/Blog/Blog';
-import Contact from './assets/Contact/Contact';
+
+// Styling
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// Components
+import HeaderNavBar from './components/Static/NavBar/HeaderNavBar';
+import Home from './components/Home/Home';
+import Portfolio from './components/Portfolio/Portfolio';
+import Blog from './components/Blog/Blog';
+import Contact from './components/Contact/Contact';
 
 function App() {
   return (
     <div className="App">
       {/* NavBar */}
-      <HeaderNavBar />
+      <HeaderNavBar className="border border-primary" />
 
       {/* Router Logic */}
       <Switch>

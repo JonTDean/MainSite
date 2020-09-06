@@ -5,6 +5,8 @@ class Portfolio extends Component{
         return(
             <>
                 <p>PORTFOLIO PAGE!</p>
+                <p>Link Github Account Here</p>
+                <p>Also have your portfolio show off your work directly in the browser, maybe via {"<Iframes>"}?</p>
             </>
         )
     }
