@@ -55,7 +55,6 @@ class Contact extends Component{
         }
     }
 
-
     render(){
         console.log("Contact");
 
@@ -89,17 +88,20 @@ class Contact extends Component{
                         <Form.Control as="textarea" />
                     </Form.Group>
 
-                    <ReCaptcha
-                        ref={(el) => {this.captcha = el;}}
-                        size="normal"
-                        data-theme="dark"            
-                        render="explicit"
-                        sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-                        onloadCallback={this.onLoadRecaptcha}
-                        verifyCallback={this.verifyCallback}
-                    />
+                    <Container className="d-flex justify-content-center">
+                        {/* This is the Captcha */}
+                        <ReCaptcha
+                            ref={(el) => {this.captcha = el;}}
+                            size="normal"
+                            data-theme="dark"            
+                            render="explicit"
+                            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+                            onloadCallback={this.onLoadRecaptcha}
+                            verifyCallback={this.verifyCallback}
+                        />
 
-                    <Button onClick={this.handleSubmit}>Submit</Button>
+                        <Button onClick={this.handleSubmit}>Submit</Button>
+                    </Container>
                 </Form>
            </motion.div>
         )
