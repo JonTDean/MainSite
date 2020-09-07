@@ -4,33 +4,30 @@ import { Navbar, Nav, Row } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 class HeaderNavBar extends Component{
-    state = [
-
-    ]
-
     render(){
         return(
-            // Parent Div to Wrap around the NavBar Class      
-            <Navbar className="container m-0 justify-content-around">
-                {/* Navbar Logo */}
-                <Navbar.Brand className="float-left mr-auto">
-                    {/* Router Link that points to the home directory */}
-                    <Link to="/">
-                        {/* React needs a require() in order to process images */}
-                        <img src={require('../../../assets/Pictures/JTD_animated.svg')} alt="J.T.D." />
-                    </Link>
-                </Navbar.Brand>
-                <Row>
-                    {/* Navbar Items */}
-                    <Nav className="col mr-5">
-                        {/* <Link to="/" className="mr-5">Home</Link> */}
-                        <Link to="/Portfolio" className="mr-5">Portfolio</Link>
-                        <Link to="/Blog" className="mr-5">Blog</Link>
-                        <Link to="/Contact" className="mr-5">Contact</Link>
-                    </Nav>
-                </Row>
-            </Navbar>
-
+            // Parent Div to Wrap around the NavBar Class
+            <div className="border-bottom">
+                <Navbar fluid className="container m-0 justify-content-around" >
+                    {/* Navbar Logo */}
+                    <Navbar.Brand className="float-left mr-auto">
+                        {/* Router Link that points to the home directory */}
+                        <Link to="/">
+                            {/* React needs a require() in order to process images */}
+                            <img src={require('../../../assets/Pictures/JTD_animated.svg')} alt="J.T.D." />
+                        </Link>
+                    </Navbar.Brand>
+                    <Row>
+                        {/* Navbar Items */}
+                        <Nav className="col mr-5">
+                            {/* <Link to="/" className="mr-5">Home</Link> */}
+                            <Link to="/Portfolio" className="mr-5">Portfolio</Link>
+                            <Link to="/Blog" className="mr-5">Blog</Link>
+                            <Link to="/Contact" className="mr-5">Contact</Link>
+                        </Nav>
+                    </Row>
+                </Navbar>
+            </div> 
         )
     }
 }

@@ -1,9 +1,10 @@
 // Libraries
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, Switch } from "react-router-dom";
 
 // Styling
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { AnimatePresence } from 'framer-motion';
 
 // Components
 import HeaderNavBar from './components/Static/NavBar/HeaderNavBar';
@@ -12,36 +13,51 @@ import Portfolio from './components/Portfolio/Portfolio';
 import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
 
-function App() {
-  return (
-    <div className="App">
-      {/* NavBar */}
-      <HeaderNavBar className="border border-primary" />
+class App extends Component {
 
-      {/* Router Logic */}
-      <Switch>
-        {/* Home Page Component Path */}
-        <Route exact path="/">
-          <Home />
-        </Route>
+  pageVariant = {
+    in: { 
+      opacity: 1
+     },
+    out: {
+      opacity: 0
+    }
+  };
+  
+  render(){
+    return (
+      <div className="App">
+        {/* NavBar */}
+        <HeaderNavBar className="border border-primary" />
+        
+        <AnimatePresence exitBeforeEnter>
+          {/* Router Logic */}
+          <Switch>
+            {/* Home Page Component Path */}
+            <Route exact path="/">
+              <Home pageVariant={this.pageVariant} />
+            </Route>
+  
+            {/* Portfolio Page Component Path */}
+            <Route exact path="/Portfolio">
+              <Portfolio pageVariant={this.pageVariant} />
+            </Route>
+  
+            {/* Blog Page Component Path */}
+            <Route exact path="/Blog">
+              <Blog pageVariant={this.pageVariant} />
+            </Route>
+  
+            {/* Contact Page Component Path */}
+            <Route exact path="/Contact">
+              <Contact pageVariant={this.pageVariant} />
+            </Route>
+          </Switch>
+        </AnimatePresence>
+      </div>
+    );
+  }
 
-        {/* Portfolio Page Component Path */}
-        <Route exact path="/Portfolio">
-          <Portfolio />
-        </Route>
-
-        {/* Blog Page Component Path */}
-        <Route exact path="/Blog">
-          <Blog />
-        </Route>
-
-        {/* Contact Page Component Path */}
-        <Route exact path="/Contact">
-          <Contact />
-        </Route>
-      </Switch>
-    </div>
-  );
 }
 
 export default App;
