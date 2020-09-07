@@ -1,6 +1,7 @@
 // Libraries
 import React, { Component } from 'react';
 import { Route, Switch } from "react-router-dom";
+import { loadReCaptcha } from 'react-recaptcha-google';
 
 // Styling
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,6 +24,10 @@ class App extends Component {
       opacity: 0
     }
   };
+
+  componentDidMount(){
+    loadReCaptcha();
+  }
   
   render(){
     return (
