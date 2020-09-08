@@ -15,6 +15,7 @@
 5. Popper.js
 6. Recaptcha
 7. React-Recaptcha
+8. emailJS
 
 ## Sites Used -Not In Order-
 
@@ -29,4 +30,5 @@
 
 ### Recaptcha
 * https://medium.com/codeep-io/how-to-use-google-recaptcha-with-react-38a5cd535e0d
+
 * https://www.youtube.com/watch?time_continue=97&v=3r7YMaT1k6Y&feature=emb_title
