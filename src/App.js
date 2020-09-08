@@ -13,7 +13,6 @@ import Home from './components/Home/Home';
 import Portfolio from './components/Portfolio/Portfolio';
 import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
-import EmailJSForm from './components/Contact/EmailJSForm';
 
 class App extends Component {
 
