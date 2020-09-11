@@ -8,7 +8,7 @@ class HeaderNavBar extends Component{
         return(
             // Parent Div to Wrap around the NavBar Class
             <div className="border-bottom">
-                <Navbar fluid className="container m-0 justify-content-around" >
+                <Navbar fluid="true" className="container m-0 justify-content-around" >
                     {/* Navbar Logo */}
                     <Navbar.Brand className="float-left mr-auto">
                         {/* Router Link that points to the home directory */}
