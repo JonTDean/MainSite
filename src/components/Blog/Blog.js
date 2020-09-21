@@ -1,10 +1,28 @@
 // Reacto
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+
+// Styling
 import { motion } from 'framer-motion';
+import {  Container, Row } from 'react-bootstrap';
+
+// Componentes
+import { medium_article_grab } from '../../assets/FetchRequests/MediumFetch';
+import BlogCards from './BlogCards';
 
 class Blog extends Component{
+    state = {
+        mediumData: {}
+    }
+
+    componentDidMount(){
+        medium_article_grab(this);
+    }
+
     render(){
-        console.log("Blog")
+        const { feed, items } = this.state.mediumData
+        // console.log(this.state.mediumData)
+        // console.log(feed)
+        // console.log(items)
 
         return(
             <motion.div
@@ -12,13 +30,28 @@ class Blog extends Component{
                 animate="in" 
                 exit="out"
                 variants={this.props.pageVariant}
-            >
-                <p>BLOG PAGE!</p>
-                <p>Remember to connect your medium account here Via the Medium API.</p>
-                <p><a href="https://github.com/Medium/medium-api-docs">Link here</a></p> 
+            >   
+                <Container className="mt-5">  
+                    {feed ?
+                        <Row className="text-center justify-content-center">
+                            <a href={feed.link}><img src={feed.image} alt="Medium" /></a>
+                            <h1>{feed.title}.com</h1>
+                        </Row>
+                    : ''}
+
+                    {items ?
+                        <Row>
+                            {items.map((value, index) => {
+                                    return <BlogCards key={index} value={value} index={index} />
+                                })
+                            }
+                        </Row>
+                    : ''}
+                </Container>
             </motion.div>
         )
     }
+
 }
 
 export default Blog;

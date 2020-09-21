@@ -1,5 +1,5 @@
 // Reacto
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 
 // Styling
 import Modal from 'react-bootstrap/Modal';
