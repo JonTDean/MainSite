@@ -2,7 +2,10 @@
 import React from 'react';
 
 // Styling
-import {Card, Col, Row, ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
+import {Card, Col, Row, ListGroup, ListGroupItem } from 'react-bootstrap';
+
+// Components
+import { pubDatePrep } from './TimeToString';
 
 export default function BlogCards(props){
     // Destructure props into something readable
@@ -18,22 +21,22 @@ export default function BlogCards(props){
             <Card.Link href={value.link} className="d-inline-flex justify-content-center"><Card.Img src={value.thumbnail} alt={`Post #${index}`} className="w-75 m-4" /></Card.Link>
             
             {/* Blog Information */}
-            <Card.Body className="border-bottom border-top">
+            <Card.Body className="border-bottom border-top d-flex justify-content-center">
                 <Row>
                     {/* Published Date */}
-                    <Col className="border-right">
-                        <Card.Text className="mr-auto"> Created - {value.pubDate} </Card.Text>
+                    <Col className="border-right d-flex justify-content-center">
+                        <Card.Text>Released On {pubDatePrep(value.pubDate)}</Card.Text>
                     </Col>
 
                     {/* Publisher */}
                     <Col className="border-left">
-                        <Card.Text className="mr-auto ml-5"> {value.author} </Card.Text>
+                        <Card.Text className="mr-auto ml-5"> By {value.author} </Card.Text>
                     </Col>
                 </Row>
             </Card.Body>
 
             {/* Categories */}
-            <ListGroup key={index} className="mb-4 mt-4 border-0" horizontal>
+            <ListGroup key={index} className="mb-4 mt-4 border-0 d-flex justify-content-center" horizontal>
                 <Card.Text className="h2 mt-4 mr-3"> Categories: </Card.Text>
                 {/* {CategoriesList(value.categories)} */}
                 <CategoriesList categories={value.categories} />
@@ -49,17 +52,3 @@ function CategoriesList(props){
     )
 }
 
-// Preps the incoming [date :: time] to be dynamically transposed. 
-function pubDatePrep([date, time]){
-    // Split the incoming string into an array of strings to be further transposed.
-    dateTransposal(date)
-    timeTransposal(time);
-}
-
-function timeTransposal(){
-
-}
-
-function dateTransposal(){
-
-}

@@ -20,9 +20,6 @@ class Blog extends Component{
 
     render(){
         const { feed, items } = this.state.mediumData
-        // console.log(this.state.mediumData)
-        // console.log(feed)
-        // console.log(items)
 
         return(
             <motion.div
@@ -31,7 +28,7 @@ class Blog extends Component{
                 exit="out"
                 variants={this.props.pageVariant}
             >   
-                <Container className="mt-5">  
+                <Container className="mt-5" >  
                     {feed ?
                         <Row className="text-center justify-content-center">
                             <a href={feed.link}><img src={feed.image} alt="Medium" /></a>

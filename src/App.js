@@ -5,6 +5,7 @@ import { loadReCaptcha } from 'react-recaptcha-google';
 
 // Styling
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/custom.scss';
 import { AnimatePresence } from 'framer-motion';
 
 // Components
