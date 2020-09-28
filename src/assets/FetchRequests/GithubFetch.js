@@ -24,7 +24,7 @@ export async function graphQLGithubAPIV4(){
     return fetch('https://api.github.com/graphql',{
         method: 'POST',
         headers: new Headers({
-            "Authorization": `bearer ${process.env.REACT_APP_GITHUB_REPO_KEY_V3}`,
+            "Authorization": `bearer ${process.env.REACT_APP_GITHUB_REPO_KEY_V4}`,
             "Content-Type" : "application/json"
         }),
         body: JSON.stringify({

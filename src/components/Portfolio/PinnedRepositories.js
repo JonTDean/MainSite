@@ -28,7 +28,7 @@ export default function PinnedRepositories(){
     console.log(pinnedRepos);
 
     return (
-        <Container className="border rounded-left ml-5 mb-3 mt-5 p-5 border-primary">
+        <Container className="border rounded-left ml-5 mb-3 mt-5 p-5 border-primary" style={{'maxHeight': 'calc(100vh - 160px)', 'overflowY': 'auto'}}>
         {/* style={{'maxHeight': 'calc(100vh - 160px)', 'overflowY': 'auto'}}*/} 
         {pinnedRepos !== undefined ?
         
