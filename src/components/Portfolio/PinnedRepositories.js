@@ -30,7 +30,9 @@ export default function PinnedRepositories(){
     return (
         <Container className="border rounded-left ml-5 mb-3 mt-5 p-5 border-primary">
         {/* style={{'maxHeight': 'calc(100vh - 160px)', 'overflowY': 'auto'}}*/} 
-            {Array.from(pinnedRepos).map((repo, id) => {
+        {pinnedRepos !== undefined ?
+        
+        Array.from(pinnedRepos).map((repo, id) => {
                 return (
                     
                     <Card key={repo.node.id} className="mb-3 mt-2">
@@ -101,7 +103,10 @@ export default function PinnedRepositories(){
                         </Card.Body>
                     </Card>
                 )
-            })}
+            })
+        :
+            <> </>
+        }
         
         </Container>
     )

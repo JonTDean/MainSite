@@ -34,7 +34,12 @@ export async function graphQLGithubAPIV4(){
     .then(resp => resp.json())
     .then(data => {
         console.log(`Data is ${data}`, data)
-        return data.data.user.pinnedItems.edges;
+        if(data.data){
+            return data.data.user.pinnedItems.edges;
+        }else {
+            console.log(data)
+        }
+        
     })
     .catch(error => console.log(error));
 }
