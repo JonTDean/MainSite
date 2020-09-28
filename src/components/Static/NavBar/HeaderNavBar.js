@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 class HeaderNavBar extends Component{
     render(){
         return(
-            // Parent Div to Wrap around the NavBar Class
             <div className="border-bottom">
                 <Navbar fluid="true" className="container m-0 justify-content-around" >
                     {/* Navbar Logo */}
