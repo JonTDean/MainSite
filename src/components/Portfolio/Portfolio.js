@@ -3,15 +3,15 @@ import React, {Component} from 'react';
 
 // Styling
 import { motion } from 'framer-motion';
+import { Container } from 'react-bootstrap';
 
 // Components
 import GithubProfile from './GithubProfile';
 import PinnedRepositories from './PinnedRepositories';
-import { Container } from 'react-bootstrap';
 
 class Portfolio extends Component{
     render(){
-        console.log("Portfolio");
+        console.log("Portfolio")
 
         return(
             <motion.div
@@ -21,8 +21,8 @@ class Portfolio extends Component{
                 variants={this.props.pageVariant}
             >
                 <Container className="d-flex justify-content-center">
-                    <GithubProfile classname="row"/>
-                    <PinnedRepositories className="row"/>
+                    <GithubProfile className="col" />
+                    <PinnedRepositories className="col" />
                 </Container>
 
             </motion.div>
