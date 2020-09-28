@@ -1,9 +1,10 @@
 # My Main Site
 
-    The Purpose of this site is from a viewpoint of succeeding. After finishing flatiron I was very burnt out and stressed, especially due to the covid situation.
-    I was caught in a rut and I personally could not even look at programming for weeks. I kept opening up VSCode and just staring at the screen unable to even think about typing a single line of code due, it wasn't a writers block feeling I was receiving, no, this was a feeling of regret and anger towards the code itself. I had begun to resent coding, which was stupid looking back at it, and I realized I was upset with myself. I was unable to perform at the ability that I thought I was at, and recently during these slow september days I've begun to realize that I am not at that level not because of the code, or the lack of documentation for certain libraries, but, due to the lack of ability and resolve to keep pushing past those "Programming blocks". And this site, by finishing it is a nod that I can perform at a level that I find acceptable and that I don't know everything and that's okay.
+The Purpose of this site is from a viewpoint of succeeding. After finishing flatiron I was very burnt out and stressed, especially due to the covid situation.
 
-    I hope you enjoy my post graduation project that I dedicated to myself.
+I was caught in a rut and I personally could not even look at programming for weeks. I kept opening up VSCode and just staring at the screen unable to even think about typing a single line of code due, it wasn't a writers block feeling I was receiving, no, this was a feeling of regret and anger towards the code itself. I had begun to resent coding, which was stupid looking back at it, and I realized I was upset with myself. I was unable to perform at the ability that I thought I was at, and recently during these slow september days I've begun to realize that I am not at that level not because of the code, or the lack of documentation for certain libraries, but, due to the lack of ability and resolve to keep pushing past those "Programming blocks". And this site, by finishing it is a nod that I can perform at a level that I find acceptable and that I don't know everything and that's okay.
+
+I hope you enjoy my post graduation project that I dedicated to myself.
 
 ## Technologies Used
 
