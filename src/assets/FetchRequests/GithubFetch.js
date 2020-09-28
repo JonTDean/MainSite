@@ -33,6 +33,7 @@ export async function graphQLGithubAPIV4(){
     })
     .then(resp => resp.json())
     .then(data => {
+        console.log(`Data is ${data}`, data)
         return data.data.user.pinnedItems.edges;
     })
     .catch(error => console.log(error));
