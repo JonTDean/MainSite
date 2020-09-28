@@ -1,6 +1,11 @@
-// Libraries
+// Reacto
 import React, {Component} from 'react';
+
+// Styling
 import { Navbar, Nav, Row } from 'react-bootstrap';
+import { motion } from 'framer-motion';
+
+// Libraries
 import { Link } from "react-router-dom";
 
 class HeaderNavBar extends Component{
@@ -14,7 +19,13 @@ class HeaderNavBar extends Component{
                         {/* Router Link that points to the home directory */}
                         <Link to="/">
                             {/* React needs a require() in order to process images */}
-                            <img src={require('../../../assets/Pictures/JTD_animated.svg')} alt="J.T.D." />
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                            >
+                                <h4>Jonathan T. Dean</h4>
+                            </motion.div>
                         </Link>
                     </Navbar.Brand>
                     <Row>

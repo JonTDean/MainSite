@@ -9,12 +9,14 @@ class Home extends Component{
 
         return(
             <motion.div
+                delay="3.2"
                 initial="out"
                 animate="in" 
                 exit="out"
                 variants={this.props.pageVariant}
+                className="d-flex justify-content-center mt-5"
             >
-                <p>HOME PAGE!</p>
+                <p>Welcome to my site.</p>
             </motion.div>
         )
     }

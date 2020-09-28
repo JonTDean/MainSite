@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 // Styling
 import { Card, Button, ListGroup, Container, Alert } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 
 // Libraries
 
@@ -10,11 +11,12 @@ import { Card, Button, ListGroup, Container, Alert } from 'react-bootstrap';
 import  { graphQLGithubAPIV4, gitHubRepoPictures } from '../../assets/FetchRequests/GithubFetch'; 
 import { pubDatePrep } from '../Blog/TimeToString';
 
-export default function PinnedRepositories(){
+export default function PinnedRepositories(props){
 
     const [pinnedRepos, setPinnedRepos] = useState({});
     const [urlClipboardAlert, setURLClipboardAlert] = useState(false);
     const [sshURLClipboardAlert, setSSHURLClipboardAlert] = useState(false);
+    
     useEffect(() => {
         const fetchData = async () => {
             const result = await graphQLGithubAPIV4(setPinnedRepos);
@@ -24,63 +26,116 @@ export default function PinnedRepositories(){
     }, []);
 
     return (
-        <Container className="border rounded-left ml-5 mb-3 mt-5 p-5 border-primary" style={{'maxHeight': 'calc(100vh - 160px)', 'overflowY': 'auto'}}>
-            {Array.from(pinnedRepos).map((repo, id) => {
-                return (
-                    <Card key={repo.node.id} className="mb-3 mt-2">
-                        <Card.Img variant="top" alt="JonTDean" src={gitHubRepoPictures[repo.node.name]} />
-                        <Card.Body>
-                            <Card.Title as="h1" className="justify-content-center">{repo.node.name}</Card.Title>
-                            <ListGroup>
-                                {/* Description */}
-                                <ListGroup.Item>
-                                    <h5>Description : </h5>
-                                    <p>{repo.node.description}</p>
-                                </ListGroup.Item>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+        >
+            <Container className="rounded-left ml-5 mb-3 mt-5 p-5 border-primary" style={{'maxHeight': 'calc(100vh - 160px)', 'overflowY': 'auto'}}>
+            {/* style={{'maxHeight': 'calc(100vh - 160px)', 'overflowY': 'auto'}}*/} 
+                {Array.from(pinnedRepos).map((repo, id) => {
+                    return (
+                        <motion.div
+                            key={repo.node.id}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                        >
+                            <Card key={repo.node.id} className="mb-3 mt-2">
+                                <motion.div
+                                    key={id + 1}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                >
+                                    <Card.Img variant="top" alt="JonTDean" src={gitHubRepoPictures[repo.node.name]} />
+                                </motion.div>
+                                <Card.Body>
+                                    <Card.Title as="h1" className="justify-content-center">{repo.node.name}</Card.Title>
+                                    <ListGroup>
+                                        {/* Description */}
+                                        <ListGroup.Item>
+                                            <h5>Description : </h5>
+                                            <p>{repo.node.description}</p>
+                                        </ListGroup.Item>
 
-                                {/* Created At Date */}
-                                <ListGroup.Item>
-                                    <h5>Released On:  : </h5>
-                                    <p>{timeParsal(repo.node.createdAt)}</p>
-                                </ListGroup.Item>
+                                        {/* Created At Date */}
+                                        <ListGroup.Item>
+                                            <h5>Released On:  : </h5>
+                                            <p>{timeParsal(repo.node.createdAt)}</p>
+                                        </ListGroup.Item>
 
-                                {/* URL */} {/* SSH URL */}
-                                <ListGroup.Item className="container justify-content-center">
-                                    {/* Checks for clipboard truthy */}
-                                    {urlClipboardAlert ? 
-                                        <Alert variant="success">
-                                            <Alert.Heading>Copied URL to clipboard!</Alert.Heading>
-                                            <hr />
-                                            <p>You've copied the link to the clipboard.</p>
-                                        </Alert>
-                                    :
-                                        <></>
-                                    }
+                                        {/* URL */} {/* SSH URL */}
+                                        <ListGroup.Item className="container justify-content-center">
+                                            {/* Checks for clipboard truthy */}
+                                            {urlClipboardAlert ? 
+                                                <motion.div
+                                                        key={repo.node.id}
+                                                        initial={{ opacity: 0 }}
+                                                        animate={{ opacity: 1 }}
+                                                        exit={{ opacity: 0 }}
+                                                >
+                                                    <Alert variant="success">
+                                                        <Alert.Heading>Copied URL to clipboard!</Alert.Heading>
+                                                        <hr />
+                                                        <p>You've copied the link to the clipboard.</p>
+                                                    </Alert>
+                                                </motion.div>
+                                            :
+                                                <></>
+                                            }
 
-                                    {/* Checks for clipboard truthy */}
-                                    {sshURLClipboardAlert ? 
-                                        <Alert variant="success">
-                                            <Alert.Heading>Copied SSH to clipboard!</Alert.Heading>
-                                            <hr />
-                                            <p>You've copied the link to the clipboard.</p>
-                                        </Alert>
-                                    :
-                                        <></>
-                                    }
+                                            {/* Checks for clipboard truthy */}
+                                            {sshURLClipboardAlert ? 
+                                                <motion.div
+                                                    key={repo.node.id}
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    exit={{ opacity: 0 }}
+                                                >
+                                                    <Alert variant="success">
+                                                        <Alert.Heading>Copied SSH to clipboard!</Alert.Heading>
+                                                        <hr />
+                                                        <p>You've copied the link to the clipboard.</p>
+                                                    </Alert>
+                                                </motion.div>
+                                            :
+                                                <></>
+                                            }
 
-                                    <h5>Copy to clipboard:</h5> 
-                                    <div className="d-flex justify-content-around">
-                                        <Button className="row btn-block p-2 w-25 h-75 mt-2" onClick={e => copyStringToClipboard(e, repo.node.url, setURLClipboardAlert, urlClipboardAlert)}>URL</Button>
-                                        <Button className="row btn-block p-2 w-25" onClick={e => copyStringToClipboard(e, repo.node.sshUrl, setSSHURLClipboardAlert, sshURLClipboardAlert)}>SSH</Button>
-                                    </div>                                     
-                                </ListGroup.Item>
-                            </ListGroup>
-                        </Card.Body>
-                    </Card>
-                )
-            })}
-        </Container>
+                                            <h5>Copy to clipboard:</h5> 
+                                            <div className="d-flex justify-content-around">
+                                                <motion.div
+                                                    className="row btn btn-block btn-primary p-2 w-25 h-75 mt-2" 
+                                                    onClick={e => copyStringToClipboard(e, repo.node.url, setURLClipboardAlert, urlClipboardAlert)}
+                                                    whileHover={{ scale: 1.1 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                >
+                                                    URL
+                                                    {/* <Button className="row btn-block p-2 w-25 h-75 mt-2" onClick={e => copyStringToClipboard(e, repo.node.url, setURLClipboardAlert, urlClipboardAlert)}>URL</Button> */}
+                                                </ motion.div>
+
+                                                <motion.div
+                                                    className="row btn btn-block btn-primary p-2 w-25 h-75 mt-2" 
+                                                    onClick={e => copyStringToClipboard(e, repo.node.url, setURLClipboardAlert, urlClipboardAlert)}
+                                                    whileHover={{ scale: 1.1 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                >
+                                                    SSH
+                                                    {/* <Button className="row btn-block p-2 w-25" onClick={e => copyStringToClipboard(e, repo.node.sshUrl, setSSHURLClipboardAlert, sshURLClipboardAlert)}>SSH</Button> */}
+                                                </ motion.div>
+                                            </div>                                     
+                                        </ListGroup.Item>
+                                    </ListGroup>
+                                </Card.Body>
+                            </Card>
+                        </motion.div>
+                    )
+                })}
+            </Container>
+        </motion.div>
     )
+
 }
 
 async function copyStringToClipboard(e, string, setClip, clipboard){
@@ -107,3 +162,81 @@ function timeParsal(time){
    
     return pubDatePrep(new_time);
 }
+
+// OG
+// return (
+//     <Container className="border rounded-left ml-5 mb-3 mt-5 p-5 border-primary" style={{'maxHeight': 'calc(100vh - 160px)', 'overflowY': 'auto'}}>
+//     {/* style={{'maxHeight': 'calc(100vh - 160px)', 'overflowY': 'auto'}}*/} 
+//         {Array.from(pinnedRepos).map((repo, id) => {
+//             return (
+//                 <Card key={repo.node.id} className="mb-3 mt-2">
+//                     <Card.Img variant="top" alt="JonTDean" src={gitHubRepoPictures[repo.node.name]} />
+//                     <Card.Body>
+//                         <Card.Title as="h1" className="justify-content-center">{repo.node.name}</Card.Title>
+//                         <ListGroup>
+//                             {/* Description */}
+//                             <ListGroup.Item>
+//                                 <h5>Description : </h5>
+//                                 <p>{repo.node.description}</p>
+//                             </ListGroup.Item>
+
+//                             {/* Created At Date */}
+//                             <ListGroup.Item>
+//                                 <h5>Released On:  : </h5>
+//                                 <p>{timeParsal(repo.node.createdAt)}</p>
+//                             </ListGroup.Item>
+
+//                             {/* URL */} {/* SSH URL */}
+//                             <ListGroup.Item className="container justify-content-center">
+//                                 {/* Checks for clipboard truthy */}
+//                                 {urlClipboardAlert ? 
+//                                     <Alert variant="success">
+//                                         <Alert.Heading>Copied URL to clipboard!</Alert.Heading>
+//                                         <hr />
+//                                         <p>You've copied the link to the clipboard.</p>
+//                                     </Alert>
+//                                 :
+//                                     <></>
+//                                 }
+
+//                                 {/* Checks for clipboard truthy */}
+//                                 {sshURLClipboardAlert ? 
+//                                     <Alert variant="success">
+//                                         <Alert.Heading>Copied SSH to clipboard!</Alert.Heading>
+//                                         <hr />
+//                                         <p>You've copied the link to the clipboard.</p>
+//                                     </Alert>
+//                                 :
+//                                     <></>
+//                                 }
+
+//                                 <h5>Copy to clipboard:</h5> 
+//                                 <div className="d-flex justify-content-around">
+//                                     <motion.div
+//                                         className="row btn btn-block btn-primary p-2 w-25 h-75 mt-2" 
+//                                         onClick={e => copyStringToClipboard(e, repo.node.url, setURLClipboardAlert, urlClipboardAlert)}
+//                                         whileHover={{ scale: 1.1 }}
+//                                         whileTap={{ scale: 0.95 }}
+//                                     >
+//                                         URL
+//                                         {/* <Button className="row btn-block p-2 w-25 h-75 mt-2" onClick={e => copyStringToClipboard(e, repo.node.url, setURLClipboardAlert, urlClipboardAlert)}>URL</Button> */}
+//                                     </ motion.div>
+
+//                                     <motion.div
+//                                         className="row btn btn-block btn-primary p-2 w-25 h-75 mt-2" 
+//                                         onClick={e => copyStringToClipboard(e, repo.node.url, setURLClipboardAlert, urlClipboardAlert)}
+//                                         whileHover={{ scale: 1.1 }}
+//                                         whileTap={{ scale: 0.95 }}
+//                                     >
+//                                         SSH
+//                                         {/* <Button className="row btn-block p-2 w-25" onClick={e => copyStringToClipboard(e, repo.node.sshUrl, setSSHURLClipboardAlert, sshURLClipboardAlert)}>SSH</Button> */}
+//                                     </ motion.div>
+//                                 </div>                                     
+//                             </ListGroup.Item>
+//                         </ListGroup>
+//                     </Card.Body>
+//                 </Card>
+//             )
+//         })}
+//     </Container>
+// )

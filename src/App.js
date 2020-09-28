@@ -19,7 +19,7 @@ class App extends Component {
 
   pageVariant = {
     in: { 
-      opacity: 1
+      opacity: 2
      },
     out: {
       opacity: 0
