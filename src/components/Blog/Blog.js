@@ -40,10 +40,10 @@ class Blog extends Component{
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
-                   <img src={feed.image} alt="Medium" />
-                                    </motion.div>                                        exit={{ opacity: 0 }}
+                                        exit={{ opacity: 0 }}
                                     >
-                     
+                                        <img src={feed.image} alt="Medium" />
+                                    </motion.div>
                                 </a>
                                 <h1>{feed.title}.com</h1>
                             </Row>
