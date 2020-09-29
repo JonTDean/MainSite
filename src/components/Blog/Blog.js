@@ -28,7 +28,7 @@ class Blog extends Component{
                 exit="out"
                 variants={this.props.pageVariant}
             >   
-                <Container className="mt-5" style={{'maxHeight': 'calc(100vh - 160px)', 'overflowY': 'auto'}}>  
+                <Container className="mt-5 shadow-lg rounded-super" style={{'maxHeight': 'calc(100vh - 160px)', 'overflowY': 'auto'}}>  
                     {feed ?
                         <motion.div
                             initial={{ opacity: 0 }}

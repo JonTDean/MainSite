@@ -7068,6 +7068,10 @@ button.bg-dark:focus {
   border-radius: 0 !important;
 }
 
+// Custom Rounded
+.rounded-super {
+  border-radius: 2rem !important;
+}
 .clearfix::after {
   display: block;
   clear: both;

@@ -12,9 +12,9 @@ class HeaderNavBar extends Component{
     render(){
         return(
             <div className="border-bottom">
-                <Navbar fluid="true" className="container m-0 justify-content-around" >
+                <Navbar fluid="sm" className="container m-0 ml-5 d-flex justify-content-between" >
                     {/* Navbar Logo */}
-                    <Navbar.Brand className="float-left mr-auto">
+                    <Navbar.Brand className="row">
                         {/* Router Link that points to the home directory */}
                         <Link to="/">
                             {/* React needs a require() in order to process images */}
