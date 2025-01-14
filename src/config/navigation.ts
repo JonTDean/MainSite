@@ -34,8 +34,8 @@ export const navigationLinks: NavigationLink[] = [
     icon: FolderKanban,
   },
   {
-    title: "Resume",
-    href: "/resume",
+    title: "Papers",
+    href: "/papers",
     icon: FileText,
   },
   {
