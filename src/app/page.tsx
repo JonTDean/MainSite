@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-8">
       {/* CTA */}
-      <section className="max-w-3xl text-center mt-14 space-y-20">
+      <section className="max-w-3xl text-center mt-14 mb-20 space-y-20">
         <section className="flex flex-col w-full items-center gap-y-4">
           <NameBar />
           <TitleShower />

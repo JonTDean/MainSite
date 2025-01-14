@@ -1,6 +1,8 @@
+import { Timeline } from "@/components/index/scroll_through/sections/Timeline";
+
 export function Journey() {
   return (
-    <section className="container mx-auto">
+    <section id="journey" className="container mx-auto">
       <h2 className="text-3xl font-bold mb-8">My Journey</h2>
       <div className="prose dark:prose-invert max-w-none">
         <p>
@@ -10,8 +12,8 @@ export function Journey() {
           infrastructure and security. This led me to explore software development,
           eventually specializing in data engineering at Phrontistery.
         </p>
-        {/* Add timeline or key milestones */}
       </div>
+      <Timeline />
     </section>
   )
 } 
