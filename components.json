@@ -15,8 +15,6 @@
     "utils": "@/lib/utils",
     "ui": "@/components/ui",
     "lib": "@/lib",
-    "hooks": "@/hooks",
-    "context": "@/context",
     "config": "@/config"
   },
   "iconLibrary": "lucide"
