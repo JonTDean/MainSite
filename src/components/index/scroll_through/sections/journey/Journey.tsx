@@ -1,4 +1,6 @@
-import { Timeline } from "@/components/index/scroll_through/sections/Timeline";
+"use client"
+
+import { Timeline } from "@/components/index/scroll_through/sections/journey/Timeline";
 
 export function Journey() {
   return (

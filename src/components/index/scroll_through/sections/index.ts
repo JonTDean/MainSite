@@ -1,10 +1,10 @@
-import { Journey } from "@/components/index/scroll_through/sections/Journey"
+import { Journey } from "@/components/index/scroll_through/sections/journey/Journey"
 import { Expertise } from "@/components/index/scroll_through/sections/Expertise"
-import { Publications } from "@/components/index/scroll_through/sections/Publications"
+import { TechnicalWriting } from "@/components/index/scroll_through/sections/technical_writing/TechnicalWriting"
 
 
 export {
     Journey,
     Expertise,
-    Publications,
+    TechnicalWriting,
 };

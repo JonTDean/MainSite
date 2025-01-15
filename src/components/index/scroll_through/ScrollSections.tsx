@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Expertise, Journey, Publications } from "./sections"
+import { Expertise, Journey, TechnicalWriting } from "./sections"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -42,7 +42,7 @@ export default function ScrollSections() {
     <div ref={sectionsRef} className="max-w-3xl space-y-32 py-16">
       <Journey />
       <Expertise />
-      <Publications />
+      <TechnicalWriting />
     </div>
   )
 }

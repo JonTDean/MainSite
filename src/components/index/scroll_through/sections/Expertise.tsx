@@ -36,7 +36,8 @@ export function Expertise() {
             trigger: card,
             start: "top bottom-=150",
             toggleActions: "play none none reverse",
-            scrub: 0.5,
+            scrub: false,
+            once: false,
             // markers: true, // Uncomment for debugging
           },
           delay: index * 0.05 // Slight delay between each card

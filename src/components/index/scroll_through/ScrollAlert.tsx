@@ -8,10 +8,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 const SECTIONS = [
   { id: "journey", title: "My Journey" },
   { id: "expertise", title: "Areas of Expertise" },
-  { id: "publications", title: "Publications" }
+  { id: "technical-writing", title: "Technical Writing" }
 ]
 
-const INITIAL_MESSAGE = "Scroll Down to learn more about my work."
+const INITIAL_MESSAGE = "Scroll Down to learn more"
 
 export default function ScrollAlert() {
   const chevronRef = useRef<HTMLDivElement>(null)
@@ -37,11 +37,11 @@ export default function ScrollAlert() {
       const scrollPosition = window.scrollY
       const viewportHeight = window.innerHeight
       
-      // Check for Publications section first
-      const publicationsSection = document.getElementById('publications')
-      if (publicationsSection) {
-        const pubRect = publicationsSection.getBoundingClientRect()
-        if (pubRect.top < viewportHeight * 0.7) {
+      // Check for TechnicalWriting section first
+      const technicalWritingSection = document.getElementById('technical-writing')
+      if (technicalWritingSection) {
+        const techRect = technicalWritingSection.getBoundingClientRect()
+        if (techRect.top < viewportHeight * 0.7) {
           gsap.to(chevronRef.current, { 
             opacity: 0, 
             duration: 0.3,
@@ -110,9 +110,9 @@ export default function ScrollAlert() {
   return (
     <div 
       ref={chevronRef}
-      className="z-50 fixed flex flex-col bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground items-center bg-slate-300/60 backdrop-blur-sm border-2 rounded-md text-center p-2"
+      className="z-50 fixed flex flex-col bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground items-center bg-slate-300/90 backdrop-blur-sm rounded-md text-center p-2"
     >
-      <p className="text-sm">{currentSection}</p>
+      <p className="text-xs">{currentSection}</p>
       <ChevronDown 
         className="w-6 h-6 animate-pulse"
         strokeWidth={1.5}

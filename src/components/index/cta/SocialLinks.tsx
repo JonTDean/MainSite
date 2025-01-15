@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import { FaBluesky } from 'react-icons/fa6';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaBluesky, FaX } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaNewspaper, FaMedium } from 'react-icons/fa';
 
 const SocialLinks = () => {
   return (
@@ -27,6 +27,26 @@ const SocialLinks = () => {
             className="text-muted-foreground hover:text-primary transition-colors"
           >
             <FaBluesky className="h-6 w-6" />
+          </Link>
+          <Link
+            href="https://x.com/jontdean"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            <FaX className="h-6 w-6" />
+          </Link>
+          {/* Substack */}
+          <Link
+            href="https://jontdean.substack.com"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            <FaNewspaper className="h-6 w-6" />
+          </Link>
+          {/* Medium */}
+          <Link
+            href="https://medium.com/@jontdean"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            <FaMedium className="h-6 w-6" />
           </Link>
         </div>
   )
