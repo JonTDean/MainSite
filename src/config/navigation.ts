@@ -1,4 +1,4 @@
-import { Home, User, FolderKanban, FileText, Mail, LucideIcon } from "lucide-react"
+import { Home, FolderKanban, FileText, Mail, LucideIcon } from "lucide-react"
 
 /**
  * Navigation link interface defining the structure of navigation items
@@ -22,11 +22,6 @@ export const navigationLinks: NavigationLink[] = [
     title: "Home",
     href: "/",
     icon: Home,
-  },
-  {
-    title: "About",
-    href: "/about",
-    icon: User,
   },
   {
     title: "Projects",

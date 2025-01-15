@@ -43,10 +43,12 @@ export function TechnicalWriting() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="technical-writing" className="container mx-auto">
+    <section ref={sectionRef} id="technical-writing" className="flex flex-col mx-auto gap-y-4">
       <h2 className="text-3xl font-bold">Technical Writing</h2>
-      <BlogPosts />
-      <AcademicPapers />
+      <div className="flex flex-col gap-y-4">
+        <BlogPosts />
+        <AcademicPapers />
+      </div>
     </section>
   )
 }
