@@ -5,7 +5,7 @@ export type Project = {
     tags: string[];
     image: string;
     demoLink: string;
-    sourceCode: string;
+    sourceCode?: string;
     category: string;
 };
 

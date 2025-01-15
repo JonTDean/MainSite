@@ -1,6 +1,6 @@
+import React from 'react'
 import { categories } from '@/config/dummyProjects'
 import { Button } from '../ui/button'
-import React from 'react'
 
 type SidebarProps = {
     selectedCategory: string;
