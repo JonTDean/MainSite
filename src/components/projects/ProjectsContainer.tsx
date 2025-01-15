@@ -38,7 +38,7 @@ export default function ProjectsContainer({ projects }: ProjectsContainerProps) 
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <div 
           ref={scrollContainerRef} 
-          className="h-[calc(100vh-20rem)] overflow-y-auto pr-4 scroll-smooth"
+          className="h-[calc(100vh-13rem)] overflow-y-auto pr-4 scroll-smooth"
         >
           <ProjectGridAnimation 
             projects={filteredProjects} 
