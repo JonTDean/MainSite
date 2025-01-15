@@ -12,28 +12,35 @@ export default function ScrollSections() {
   useEffect(() => {
     if (!sectionsRef.current) return
 
-    // Register ScrollTrigger for each section's internal animations
+    // Ensure GSAP and ScrollTrigger are registered
     gsap.registerPlugin(ScrollTrigger)
 
-    // Animate sections as they come into view
-    const sections = sectionsRef.current.children
-    Array.from(sections).forEach((section) => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          end: "top 20%",
-          toggleActions: "play reverse reverse reset",
-          scrub: 1
-        }
+    // Force a refresh of ScrollTrigger
+    ScrollTrigger.refresh()
+
+    // Create context to ensure proper cleanup
+    const ctx = gsap.context(() => {
+      // Animate sections as they come into view
+      const sections = sectionsRef.current!.children
+      Array.from(sections).forEach((section) => {
+        gsap.from(section, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "top 20%",
+            toggleActions: "play reverse reverse reset",
+            scrub: 1
+          }
+        })
       })
-    })
+    }, sectionsRef)
 
     return () => {
-      // Cleanup ScrollTrigger instances
+      // Clean up context and ScrollTrigger instances
+      ctx.revert()
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [])
